@@ -9,11 +9,17 @@ let drawCard = Math.floor(Math.random() * 13 + 1 )
 
 
 var guess = prompt ('Guess high or low')
-if ( guess ==  'High' && drawCard > card ) {
+if ( guess ==  'high' || 'h' && drawCard > card ) {
   console.log('You got it right')
-
+}
+else if ( guess == 'low' || 'l' && drawCard < card){
+  console.log('You got it right')
 }
 else {
   console.log ('You got it wrong!')
 }
+
+// else {
+//   console.log('Same card')
+// }
 
