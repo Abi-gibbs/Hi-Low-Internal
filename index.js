@@ -25,9 +25,10 @@ do {
 
 	let guess1 = prompt('Guess high or low')
 
-	if (guess1 == 'high' || 'h' && drawCard1 < card1){
-		console.log('You got it right')
-
+	if (guess1 == 'high' || 'h'){
+    higherGuess()
+  }
+  
 	} else if (guess == 'low' || 'l' && drawCard1 < card1){
     console.log('You got it right')
 
@@ -38,6 +39,18 @@ do {
   roundNum ++ 
 
 } while (roundNum < round);
+
+
+higherGuess();
+function higherGuess(){
+if (drawCard1 < card1){
+  console.log('Correct!')
+}
+else {
+  console.log('incorrect!')
+}
+console.log('The card was ' + drawCard1)
+}
 
 
 
