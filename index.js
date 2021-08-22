@@ -21,11 +21,10 @@ do {
   let cardDrawn = drawCards[draw];
 
   //check if higher or lower
-  console.log(guess1)
-  if (guess1 == 'high' || 'h' || 'higher') {
+  if (guess1 == "high" ||guess1 == "h" ||guess1 == "higher") {
     higherGuess(cardDrawn, card1);
 
-  } else if (guess1 == 'low' || 'l' || 'lower') {
+  } else if (guess1 == "low" ||guess1 == "l" ||guess1 == "lower") {
     lowerGuess(cardDrawn, card1);
 
   } else {
@@ -40,7 +39,6 @@ do {
 } while (roundNum < round);
 
 function higherGuess(cardDrawn, card1) {
-  console.log('higher:');
   if (cardDrawn > card1) {
     console.log('Correct!');
     console.log('The card was ' + cardDrawn)
@@ -52,9 +50,7 @@ function higherGuess(cardDrawn, card1) {
 }
 
  function lowerGuess(cardDrawn, card1) {
-   console.log(cardDrawn + ', ' + card1);
-
-  if (cardDrawn < card1) {
+   if (cardDrawn < card1) {
     console.log('Correct!')
     console.log('The card was ' + cardDrawn)
   }
