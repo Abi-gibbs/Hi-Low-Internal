@@ -1,3 +1,7 @@
+console.log('Wlcome to my hi-low game, there is a stack of card and a card will be drawn, you then must guess weather the next card will be higher or lower, the winner is the person who guesses the most correct!')
+
+console.log('-------------------------------------')
+
 let round = prompt('Player1 how many rounds do you want to play?');
 
 let round2 = prompt('Player2 how many rounds do you want to play?');
@@ -7,8 +11,12 @@ let roundNum2 = 0;
 let points = 0;
 let points2 = 0;
 
-let cardList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
-let drawCards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+let cardList = ['ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'jack', 'queen', 'king'];
+
+
+
+let drawCards = ['ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'jack', 'queen', 'king'];
+
 
 
 do {
@@ -27,10 +35,10 @@ do {
 
   //check if higher or lower
   if (guess1 == "high" ||guess1 == "h" ||guess1 == "higher") {
-    points = points + higherGuess(cardDrawn, card1);
+    points = points + higherGuess(draw, pickedCard, cardDrawn);
     
   } else if (guess1 == "low" ||guess1 == "l" ||guess1 == "lower") {
-    points = points + lowerGuess(cardDrawn, card1);
+    points = points + lowerGuess(draw, pickedCard, cardDrawn);
 
   } else {
 
@@ -46,8 +54,8 @@ console.log ('You have ' + points + ' points');
 console.log('Player2s Turn!')
 }
 
-function higherGuess(cardDrawn, card1, points) {
-  if (cardDrawn > card1) {
+function higherGuess(draw, pickedCard, points, cardDrawn) {
+  if (draw > pickedCard) {
     console.log('Correct!');
     console.log('The card was ' + cardDrawn);
     return 1;
@@ -59,8 +67,8 @@ function higherGuess(cardDrawn, card1, points) {
   }
 }
 
- function lowerGuess(cardDrawn, card1, points) {
-   if (cardDrawn < card1) {
+ function lowerGuess(draw, pickedCard, points, cardDrawn) {
+   if (draw < pickedCard) {
     console.log('Correct!');
     console.log('The card was ' + cardDrawn);
     return 1;
@@ -122,21 +130,21 @@ else{
 }
 
 
-function higherGuess2(cardDrawn, card1, points) {
-  if (cardDrawn > card1) {
+function higherGuess(draw, pickedCard, points, cardDrawn) {
+  if (draw > pickedCard) {
     console.log('Correct!');
     console.log('The card was ' + cardDrawn);
     return 1;
   }
   else {
     console.log('incorrect!')
-    console.log('The card was ' + cardDrawn)
+    console.log('The card was ' + cardDrawn);
     return 0;
   }
 }
 
- function lowerGuess2(cardDrawn, card1, points) {
-   if (cardDrawn < card1) {
+  function lowerGuess(draw, pickedCard, points, cardDrawn) {
+   if (draw < pickedCard) {
     console.log('Correct!');
     console.log('The card was ' + cardDrawn);
     return 1;
@@ -145,5 +153,6 @@ function higherGuess2(cardDrawn, card1, points) {
     console.log('Incorrect!')
     console.log('The card was ' + cardDrawn)
     return 0;
+
   }
 }
