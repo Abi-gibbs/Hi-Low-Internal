@@ -1,9 +1,11 @@
-console.log('Wlcome to my hi-low game, there is a stack of card and a card will be drawn, you then must guess weather the next card will be higher or lower, the winner is the person who guesses the most correct!')
+console.log('Wlcome to my hi-low game, first there will be a card drawn, you then must guess weather the next card will be higher or lower, the winner is the person who guesses the most correct!')
 
-console.log('-------------------------------------')
+console.log('--------------------------------------')
 
+//player1 picks how many rounds they want to play 
 let round = prompt('Player1 how many rounds do you want to play?');
 
+//player2 picks how many rounds they want to play
 let round2 = prompt('Player2 how many rounds do you want to play?');
 
 let roundNum = 0;
@@ -38,7 +40,7 @@ do {
     points = points + higherGuess(draw, pickedCard, cardDrawn);
     
   } else if (guess1 == "low" ||guess1 == "l" ||guess1 == "lower") {
-    points = points + lowerGuess(draw, pickedCard, cardDrawn);
+    points = points + lowerGuess(draw, pickedCard);
 
   } else {
 
@@ -115,6 +117,7 @@ do {
 } while (roundNum2 < round2){
 
 console.log ('You have ' + points2 + ' points')
+console.log('-----------------------------')
 
 
 if (points2 > points){
@@ -130,21 +133,21 @@ else{
 }
 
 
-function higherGuess(draw, pickedCard, points, cardDrawn) {
-  if (draw > pickedCard) {
+function higherGuess2(cardDrawn, card1, points) {
+  if (cardDrawn > card1) {
     console.log('Correct!');
     console.log('The card was ' + cardDrawn);
     return 1;
   }
   else {
     console.log('incorrect!')
-    console.log('The card was ' + cardDrawn);
+    console.log('The card was ' + cardDrawn)
     return 0;
   }
 }
 
-  function lowerGuess(draw, pickedCard, points, cardDrawn) {
-   if (draw < pickedCard) {
+ function lowerGuess2(cardDrawn, card1, points) {
+   if (cardDrawn < card1) {
     console.log('Correct!');
     console.log('The card was ' + cardDrawn);
     return 1;
@@ -153,6 +156,5 @@ function higherGuess(draw, pickedCard, points, cardDrawn) {
     console.log('Incorrect!')
     console.log('The card was ' + cardDrawn)
     return 0;
-
   }
 }
