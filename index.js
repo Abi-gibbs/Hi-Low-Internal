@@ -10,6 +10,7 @@ let points2 = 0;
 let cardList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
 let drawCards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
 
+
 do {
 
   //pick the first card
@@ -106,7 +107,20 @@ do {
 } while (roundNum2 < round2){
 
 console.log ('You have ' + points2 + ' points')
+
+
+if (points2 > points){
+  console.log('Player 2 wins!')
 }
+else if (points > points2){
+  console.log('Player 1 wins!') 
+}
+else{
+  console.log('Its a draw!')
+}
+
+}
+
 
 function higherGuess2(cardDrawn, card1, points) {
   if (cardDrawn > card1) {
