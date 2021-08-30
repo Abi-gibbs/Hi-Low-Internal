@@ -12,8 +12,8 @@ let round2 = prompt('Player2 how many rounds do you want to play?');
 //defining the round numbers and points 
 let roundNum = 0;
 let roundNum2 = 0;
-let points = 0;
-let points2 = 0;
+let ply1points = 0;
+let ply2points = 0;
 
 //this is the first card list, this is the list the computer picks from
 let cardList = ['ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'jack', 'queen', 'king'];
@@ -40,10 +40,10 @@ do {
 
   //checking if the guess from player1 was higher or lower
   if (guess1 == "high" ||guess1 == "h" ||guess1 == "higher") {
-    points = points + higherGuess(draw, pickedCard, points, cardDrawn);
+    ply1points = ply1points + higherGuess(draw, pickedCard, cardDrawn);
     
   } else if (guess1 == "low" ||guess1 == "l" ||guess1 == "lower") {
-    points = points + lowerGuess(draw, pickedCard, points, cardDrawn);
+    ply1points = ply1points + lowerGuess(draw, pickedCard, cardDrawn);
 
   } else {
 
@@ -57,7 +57,7 @@ do {
 
 //the end of the do loop and 
 } while (roundNum < round){
-console.log ('You have ' + points + ' points');
+console.log ('You have ' + ply1points + ' points');
 console.log('--------------------------------------')
 console.log('Player2s Turn!')
 }
@@ -106,10 +106,10 @@ do {
 
   //check if higher or lower
   if (guess1 == "high" ||guess1 == "h" ||guess1 == "higher") {
-    points2 = points2 + higherGuess2(draw, pickedCard, cardDrawn, card1);
+    ply2points = ply2points + higherGuess2(draw, pickedCard, cardDrawn, card1);
 
   } else if (guess1 == "low" ||guess1 == "l" ||guess1 == "lower") {
-    points2 = points2 + lowerGuess2(draw, pickedCard, cardDrawn, card1);
+    ply2points = ply2points + lowerGuess2(draw, pickedCard, cardDrawn, card1);
 
   } else {
 
@@ -122,14 +122,15 @@ do {
   // higherGuess();
 } while (roundNum2 < round2){
 
-console.log ('You have ' + points2 + ' points')
+console.log ('You have ' + ply2points + ' points')
 console.log('-----------------------------')
 
 
-if (points2 > points){
+ 
+if (ply2points > ply1points){
   console.log('Player 2 wins!')
 }
-else if (points > points2){
+else if (ply1points > ply2points){
   console.log('Player 1 wins!') 
 }
 else{
