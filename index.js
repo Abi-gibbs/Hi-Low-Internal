@@ -1,4 +1,4 @@
-console.log('Wlcome to my hi-low game, first there will be a card drawn, you then must guess weather the next card will be higher or lower, the winner is the person who guesses the most correct!')
+console.log('Welcome to my hi-low game, first there will be a card drawn, you then must guess weather the next card will be higher or lower, the winner is the person who guesses the most correct!')
 
 console.log('--------------------------------------')
 
@@ -140,7 +140,7 @@ else{
 }
 
 
-function higherGuess2(draw, pickedCard, points, cardDrawn) {
+function higherGuess2(draw, pickedCard, cardDrawn, card1) {
   if (draw > pickedCard) {
     console.log('Correct!');
     console.log('The card was ' + cardDrawn);
@@ -153,7 +153,7 @@ function higherGuess2(draw, pickedCard, points, cardDrawn) {
   }
 }
 
- function lowerGuess2(draw, pickedCard, points, cardDrawn) {
+ function lowerGuess2(draw, pickedCard, cardDrawn, card1) {
    if (draw < pickedCard) {
     console.log('Correct!');
     console.log('The card was ' + cardDrawn);
