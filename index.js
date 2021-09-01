@@ -46,23 +46,25 @@ do {
     ply1points = ply1points + lowerGuess(draw, pickedCard, cardDrawn);
 
   } else {
-
+    
     console.log('invalid answer please try again')
-    let guess1 = prompt('Guess high or low')
-
+    let guess1 = prompt('Guess higher or lower')  
   }
+
   //adding another number to the rounds
   roundNum++
-  // higherGuess();
 
-//the end of the do loop and 
+
+//the end of the do loop and start of player2 also printing points for Player1
 } while (roundNum < round){
 console.log ('You have ' + ply1points + ' points');
 console.log('--------------------------------------')
 console.log('Player2s Turn!')
 }
 
-function higherGuess(draw, pickedCard, points, cardDrawn) {
+//function higherGuess2(draw, pickedCard, cardDrawn, card1)
+
+function higherGuess(draw, pickedCard, cardDrawn, card1) {
   if (draw > pickedCard) {
     console.log('Correct!');
     console.log('The card was ' + cardDrawn);
@@ -75,7 +77,7 @@ function higherGuess(draw, pickedCard, points, cardDrawn) {
   }
 }
 
- function lowerGuess(draw, pickedCard, points, cardDrawn) {
+ function lowerGuess(draw, pickedCard, cardDrawn, card1) {
    if (draw < pickedCard) {
     console.log('Correct!');
     console.log('The card was ' + cardDrawn);
