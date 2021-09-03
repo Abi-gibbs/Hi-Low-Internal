@@ -12,10 +12,17 @@ let player1Name = prompt ('Player1 please enter your name');
 let player2Name = prompt ('Player2 please enter your name');
 
 
-//player1 picks how many rounds they want to play 
-let roundCount = prompt('How many rounds would you each want to play (1-9)?');
-
-
+//player1 picks how many rounds they want to play
+let roundCount = 0; 
+while(true){
+  roundCount = prompt('How many rounds do you want to play (1-9)?');
+  if (roundCount >0 && roundCount <10){
+    console.log(player1Name + ' your ' + roundCount + ' round(s) will start now')
+     break;
+  }else{
+    console.log('I don\'t understand, please enter a number between (1-9)')
+  }
+}
 // //player2 picks how many rounds they want to play
 // let round2 = prompt('Player2 how many rounds do you want to play?');
 
@@ -24,7 +31,7 @@ let cardList = ['ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'jack', 'qu
 
 
 //this is the second card list, this is the list the platers pick from
-let drawCards = ['ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'jack', 'queen', 'king'];
+//let drawCards = ['ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'jack', 'queen', 'king'];
 
 
 do {
@@ -34,8 +41,8 @@ do {
   let card1 = cardList[pickedCard];
 
   //pick the second card from the second card list 
-  let draw = Math.floor(Math.random() * drawCards.length);
-  let cardDrawn = drawCards[draw];
+  let draw = Math.floor(Math.random() * cardList.length);
+  let cardDrawn = cardList[draw];
 
   //tell the user what was drawn and ask for their guess
   console.log('The first card drawn is ' + card1);
@@ -60,13 +67,13 @@ do {
 
   //the end of the do loop and start of player2 also printing points for Player1
 } while (roundNum < roundCount) {
-  console.log(player1Name +' you have ' + ply1points + ' points');
   console.log('--------------------------------------')
-  console.log(player2Name +'s Turn!');
+  console.log(player1Name +' you have ' + ply1points + ' point(s)');
+  console.log('--------------------------------------')
+  console.log(player2Name +'\'s Turn!');
 }
 
 //This function controls what happens when the player inputs a higher option, 
-
 function higherGuess(draw, pickedCard, cardDrawn, card1) {
   if (draw > pickedCard) {
     console.log('Correct!');
@@ -101,8 +108,8 @@ do {
   let card1 = cardList[pickedCard];
 
   //pick the second card
-  let draw = Math.floor(Math.random() * drawCards.length);
-  let cardDrawn = drawCards[draw];
+  let draw = Math.floor(Math.random() * cardList.length);
+  let cardDrawn = cardList[draw];
 
   //tell the user what was drawn and ask for their guess
   console.log('The first card drawn is ' + card1);
@@ -115,10 +122,10 @@ do {
     let guess1 = prompt(player2Name + ' will the next card drawn be higher or lower (h or l)?');
     
     if (guess1 == "high" || guess1 == "h" || guess1 == "higher") {
-      ply2points = ply2points + higherGuess2(draw, pickedCard, cardDrawn, card1);
+      ply2points = ply2points + higherGuess(draw, pickedCard, cardDrawn, card1);
       break;
     }else if (guess1 == "low" || guess1 == "l" || guess1 == "lower") {
-      ply2points = ply2points + lowerGuess2(draw, pickedCard, cardDrawn, card1);
+      ply2points = ply2points + lowerGuess(draw, pickedCard, cardDrawn, card1);
       break; 
     } else {
       console.log('I don\'t understand please try again')
@@ -128,26 +135,26 @@ do {
   roundNum++
   // higherGuess();
 } while (roundNum < roundCount) {
-
+  console.log('--------------------------------------')
   console.log(player2Name + ' you have ' + ply2points + ' points')
-  console.log('-----------------------------')
-
-
-
+  console.log('--------------------------------------')
+  console.log('')  
+  console.log('**************************************') 
   if (ply2points > ply1points) {
-    console.log( player2Name+ ' wins!')
+    console.log(' ' + player2Name+ ' wins!')
   }
   else if (ply1points > ply2points) {
-    console.log( player1Name +' wins!')
+    console.log(' ' + player1Name +' wins!')
   }
   else {
 
-    console.log('Its a draw!')
+    console.log('  Its a draw!')
   }
+  console.log('**************************************') 
 
 }
 
-
+/*
 function higherGuess2(draw, pickedCard, cardDrawn, card1) {
   if (draw > pickedCard) {
     console.log('Correct!');
@@ -173,3 +180,4 @@ function lowerGuess2(draw, pickedCard, cardDrawn, card1) {
     return 0;
   }
 }
+*/
