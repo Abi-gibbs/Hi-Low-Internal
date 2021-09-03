@@ -108,20 +108,21 @@ do {
   console.log('The first card drawn is ' + card1);
 
 
-  let guess1 = prompt(player2Name + ' guess weather the next card drawn is going to be higher or lower');
+  
 
-  //check if higher or lower
-  if (guess1 == "high" || guess1 == "h" || guess1 == "higher") {
-    ply2points = ply2points + higherGuess2(draw, pickedCard, cardDrawn, card1);
-
-  } else if (guess1 == "low" || guess1 == "l" || guess1 == "lower") {
-    ply2points = ply2points + lowerGuess2(draw, pickedCard, cardDrawn, card1);
-
-  } else {
-
-    console.log('invalid answer please try again')
-    let guess1 = prompt('Guess high or low')
-
+  while (true)
+  {  
+    let guess1 = prompt(player2Name + ' will the next card drawn be higher or lower (h or l)?');
+    
+    if (guess1 == "high" || guess1 == "h" || guess1 == "higher") {
+      ply2points = ply2points + higherGuess2(draw, pickedCard, cardDrawn, card1);
+      break;
+    }else if (guess1 == "low" || guess1 == "l" || guess1 == "lower") {
+      ply2points = ply2points + lowerGuess2(draw, pickedCard, cardDrawn, card1);
+      break; 
+    } else {
+      console.log('I don\'t understand please try again')
+    }
   }
 
   roundNum++
