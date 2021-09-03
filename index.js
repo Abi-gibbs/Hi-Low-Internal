@@ -181,3 +181,5 @@ function lowerGuess2(draw, pickedCard, cardDrawn, card1) {
   }
 }
 */
+
+
