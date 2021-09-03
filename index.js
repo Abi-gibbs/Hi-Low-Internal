@@ -7,13 +7,13 @@ let roundNum = 0;
 let ply1points = 0;
 let ply2points = 0;
 
-let player1Name = prompt ('Player1 please enter your name')
+let player1Name = prompt ('Player1 please enter your name');
 
-let player2Name = prompt ('Player2 please enter your name')
+let player2Name = prompt ('Player2 please enter your name');
 
 
 //player1 picks how many rounds they want to play 
-let round = prompt('How many rounds do you each want to play?');
+let roundCount = prompt('How many rounds would you each want to play (1-9)?');
 
 
 // //player2 picks how many rounds they want to play
@@ -27,43 +27,42 @@ let cardList = ['ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'jack', 'qu
 let drawCards = ['ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'jack', 'queen', 'king'];
 
 
-//do loop do i can replay this section and have a while statement
 do {
 
   //pick the first card from the first card list 
   let pickedCard = Math.floor(Math.random() * cardList.length);
   let card1 = cardList[pickedCard];
 
-  //tell the user what was drawn and ask for their guess
-  console.log('The first card drawn is ' + card1);
-  let guess1 = prompt (player1Name + ' guess weather the next card drawn is going to be higher or lower');
-
   //pick the second card from the second card list 
   let draw = Math.floor(Math.random() * drawCards.length);
   let cardDrawn = drawCards[draw];
 
-  //checking if the guess from player1 was higher or lower
-  if (guess1 == "high" || guess1 == "h" || guess1 == "higher") {
-    ply1points = ply1points + higherGuess(draw, pickedCard, cardDrawn);
+  //tell the user what was drawn and ask for their guess
+  console.log('The first card drawn is ' + card1);
 
-  } else if (guess1 == "low" || guess1 == "l" || guess1 == "lower") {
-    ply1points = ply1points + lowerGuess(draw, pickedCard, cardDrawn);
+  while (true)
+  {  
+    let guess1 = prompt (player1Name + ', will the next card drawn be higher or lower (h or l)?');
 
-  } else {
-
-    console.log('invalid answer please try again')
-    let guess1 = prompt('Guess higher or lower')
-  }
-
+    if (guess1 == "high" || guess1 == "h" || guess1 == "higher") {
+        ply1points = ply1points + higherGuess(draw, pickedCard, cardDrawn);
+        break;
+      } else if (guess1 == "low" || guess1 == "l" || guess1 == "lower") {
+        ply1points = ply1points + lowerGuess(draw, pickedCard, cardDrawn);
+        break;
+      } else {
+        console.log('I don\'t understand please try again')
+      }
+  }  
   //adding another number to the rounds
   roundNum++
 
 
   //the end of the do loop and start of player2 also printing points for Player1
-} while (roundNum < round) {
+} while (roundNum < roundCount) {
   console.log(player1Name +' you have ' + ply1points + ' points');
   console.log('--------------------------------------')
-  console.log(player2Name +'s Turn!')
+  console.log(player2Name +'s Turn!');
 }
 
 //This function controls what happens when the player inputs a higher option, 
@@ -93,21 +92,23 @@ function lowerGuess(draw, pickedCard, cardDrawn, card1) {
     return 0;
 
   }
-}
+ }
 
-
+roundNum = 0;
 do {
   //pick the first card
   let pickedCard = Math.floor(Math.random() * cardList.length);
   let card1 = cardList[pickedCard];
 
-  //tell the user what was drawn and ask for their guess
-  console.log('The first card drawn is ' + card1);
-  let guess1 = prompt(player2Name + ' guess weather the next card drawn is going to be higher or lower');
-
   //pick the second card
   let draw = Math.floor(Math.random() * drawCards.length);
   let cardDrawn = drawCards[draw];
+
+  //tell the user what was drawn and ask for their guess
+  console.log('The first card drawn is ' + card1);
+
+
+  let guess1 = prompt(player2Name + ' guess weather the next card drawn is going to be higher or lower');
 
   //check if higher or lower
   if (guess1 == "high" || guess1 == "h" || guess1 == "higher") {
@@ -125,7 +126,7 @@ do {
 
   roundNum++
   // higherGuess();
-} while (roundNum < round) {
+} while (roundNum < roundCount) {
 
   console.log(player2Name + ' you have ' + ply2points + ' points')
   console.log('-----------------------------')
