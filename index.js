@@ -15,6 +15,7 @@ let player2Name = prompt ('Player2 please enter your name')
 //player1 picks how many rounds they want to play 
 let round = prompt('How many rounds do you each want to play?');
 
+
 // //player2 picks how many rounds they want to play
 // let round2 = prompt('Player2 how many rounds do you want to play?');
 
@@ -96,7 +97,6 @@ function lowerGuess(draw, pickedCard, cardDrawn, card1) {
 
 
 do {
-
   //pick the first card
   let pickedCard = Math.floor(Math.random() * cardList.length);
   let card1 = cardList[pickedCard];
@@ -127,7 +127,7 @@ do {
   // higherGuess();
 } while (roundNum < round) {
 
-  console.log(player2Name + ' you have' + ply2points + ' points')
+  console.log(player2Name + ' you have ' + ply2points + ' points')
   console.log('-----------------------------')
 
 
