@@ -58,7 +58,7 @@ do {
         ply1points = ply1points + lowerGuess(draw, pickedCard, cardDrawn);
         break;
       } else {
-        console.log('I don\'t understand please try again')
+        console.log('I don\'t understand please try again.')
       }
   }  
   //adding another number to the rounds
